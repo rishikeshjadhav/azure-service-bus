@@ -151,6 +151,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\logger\logger.csproj">
+      <Project>{6aabf4fc-8cd3-4199-9353-295e38dee50e}</Project>
+      <Name>logger</Name>
+    </ProjectReference>
     <ProjectReference Include="..\service-bus-api\service-bus-api.csproj">
       <Project>{1f367195-c08d-4c8d-9c50-bf150091a90b}</Project>
       <Name>service-bus-api</Name>
