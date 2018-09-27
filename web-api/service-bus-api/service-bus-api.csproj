@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,6 +32,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ServiceBus">
+      <HintPath>..\..\External\DLL\Microsoft.ServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External\DLL\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Http">
@@ -44,11 +52,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\CommonHelper.cs" />
+    <Compile Include="Models\APIRequest.cs" />
+    <Compile Include="Models\APIResponse.cs" />
+    <Compile Include="Models\QueueModel.cs" />
+    <Compile Include="Models\TopicModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceBusController.cs" />
+    <Compile Include="Services\QueueService.cs" />
+    <Compile Include="Services\TopicService.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\logger\logger.csproj">
+      <Project>{6AABF4FC-8CD3-4199-9353-295E38DEE50E}</Project>
+      <Name>logger</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
